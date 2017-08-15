@@ -28,7 +28,7 @@ So, let's take the least significant bit of each reading, sum them together a bu
 
 There's a good bit of dispersion here-- but the numbers are all landing between about 100 and 175, only covering about 30% of the whole range.   
 
-So I'm a proponent of using the internal temperature sensor-- in theory the signal should be noisy in the LSB, which should give this technique a good run.
+I'm a proponent of using the internal temperature sensor-- in theory the signal should be noisy in the LSB, which should give this technique a good run.
 
 Here's the raw readings:
 
