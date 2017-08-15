@@ -77,3 +77,7 @@ Here's the final function I ended up with:
     }
 
 You pass it the number of an unconnected analog pin.    It does not appear to be affected by the values of the adjacent pins, but can be affected by being connected (either in actuality or through a high-resistance link to another part of the circuit-- like a finger).   So it might be worth adding checks to the function to make sure the analogRead is pretty random.
+
+### And finally
+
+Suggestions for other algorithms or other sources of entropy to test are welcome.  I still feel like the safest bet is going to be to work something out using the internal temperature sensor, it's not prone to being pulled intentionally or accidentally into another signal level, and there's clearly some noise.   
