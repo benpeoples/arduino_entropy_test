@@ -81,3 +81,5 @@ You pass it the number of an unconnected analog pin.    It does not appear to be
 ### And finally
 
 Suggestions for other algorithms or other sources of entropy to test are welcome.  I still feel like the safest bet is going to be to work something out using the internal temperature sensor, it's not prone to being pulled intentionally or accidentally into another signal level, and there's clearly some noise.   
+
+Also, please don't use this function cryptographically.   Yamamoto died because his crypto was bad: don't be Yamamoto.  
