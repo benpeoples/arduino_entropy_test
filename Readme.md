@@ -14,17 +14,17 @@ In terms of just reading the ADC and using that value to seed, it's generally no
 
 Here's 768 readings of an open ADC pin under three different conditions (1,2,3 above):
 
-![Open ADC Pin](http://imgur.com/VuRICgO)
+![Open ADC Pin](http://imgur.com/VuRICgO.png)
 
 Now, this is not without entropy, but the values are rather consistent, only landing on a few code points.   Ideally, we want this graph to look something like this:
 
-![Snow](http://imgur.com/TIe4b1d)
+![Snow](http://imgur.com/TIe4b1d.png)
 
 While it looks clumpy, that's what real random data looks like.
 
 So, let's take the least significant bit of each reading, sum them together a bunch into an 8-bit integer.  It'll overflow, but that overflow is unpredictable.   
 
-![Clumpy](http://imgur.com/AHFNd3A)
+![Clumpy](http://imgur.com/AHFNd3A.png)
 
 There's a good bit of dispersion here-- but the numbers are all landing between about 100 and 175, only covering about 30% of the whole range.   
 
@@ -32,11 +32,11 @@ So I'm a proponent of using the internal temperature sensor-- in theory the sign
 
 Here's the raw readings:
 
-![A little bouncy](http://imgur.com/Sq62QTu)
+![A little bouncy](http://imgur.com/Sq62QTu.png)
 
 The black line is the reading at the stock ADC frequency, the red is at a higher frequency.    While the signal shows a good bit of randomness, it **on average** is very flat.   When we sum this all together, we get this-- this is 1024 readings, LSbit summed):
 
-![Ugh](http://imgur.com/Yhj3Oum)
+![Ugh](http://imgur.com/Yhj3Oum.png)
 
 While the black signal does cover the whole range, at any given moment, it's in a very tight clump.   There just isn't that much variation in the signal.  
 
@@ -56,7 +56,7 @@ Summing their LSbits gets us 0, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, again about 6. 
 
 This problem scales nicely-- by summing the whole bytes a bunch (I'm using 1024 reads cycled), you get very nice dispersion of values:
 
-![Snow](http://imgur.com/TIe4b1d)
+![Snow](http://imgur.com/TIe4b1d.png)
 
 But unless you're doing cryptography, you don't need real random numbers, you just need to randomly seed the PRNG.  This is a good technique to generate random seeds.
 
